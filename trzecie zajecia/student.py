@@ -34,11 +34,11 @@ class Student:
 
         if x == "d":
             print("Jaka ocene dodac?")
-            d = int(input())
+            d = defense_int_input("", 1, 6)
             self.__rating_list.append(d)
         if x == "u":
             print("Ktora ocene usunac?")
-            d = int(input())
+            d = defense_int_input("", 1, 6)
             self.__rating_list.pop(d-1)
 
 
@@ -160,13 +160,19 @@ def modyfikacja_ocen():
 
 
 def wyswietlanie_menu():
-	print("Na jakiej podstawie wybrac studentow?")
-	print("1. Średnia ocen większa niż")
-	print("2. Średnia ocen mniejsza niż")
-	print("3. Numer z listy")
+    while 1:
+        try:
+            print("Na jakiej podstawie wybrac studentow?")
+            print("1. Średnia ocen większa niż")
+            print("2. Średnia ocen mniejsza niż")
+            print("3. Numer z listy")
 
-	wybor = int(input("Podaj opcje:"))
-	return wybor
+            wybor = int(input("Podaj opcje:"))
+            break
+
+        except Exception:
+            print("Mamy problem")
+    return wybor
 
 
 def wyswietlanie(wybor):
@@ -181,19 +187,29 @@ def wyswietlanie(wybor):
 
 
 def w_srednia_g():
-	print("Podaj od jakiej sredniej w gore podac:")
-	x = float(input())
-	for student in students_list:
-		if student.avg_rating() >= x:
-			student.show()
+    while 1:
+        try:
+            print("Podaj od jakiej sredniej w gore podac:")
+            x = float(input())
+            for student in students_list:
+                if student.avg_rating() >= x:
+                    student.show()
+            break
+        except Exception:
+            print("Mamy problem")
+
 
 def w_srednia_d():
-	print("Podaj od jakiej sredniej w dol podac:")
-	x = float(input())
-	for student in students_list:
-		if student.avg_rating() <= x:
-			student.show()
-
+    while 1:
+        try:
+            print("Podaj od jakiej sredniej w dol podac:")
+            x = float(input())
+            for student in students_list:
+                if student.avg_rating() <= x:
+                    student.show()
+            break
+        except Exception:
+            print("Mamy problem")
 
 def w_numer():
 	print("Ilu studentow wyswietlic?")
