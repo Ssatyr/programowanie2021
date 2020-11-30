@@ -27,6 +27,11 @@ class funkcjaKwadratowa(Funkcja):
         self.x = list(np.arange(self.x_min, self.x_max, self.step))
         self.y = [self.a*x**2+self.b*x+self.c for x in self.x]
 
+    def show(self):
+        print("a: ", self.a)
+        print("b: ", self.b)
+        print("c: ", self.c)
+
     @classmethod
     def create_function(cls, **kwargs):
         if kwargs['a']:

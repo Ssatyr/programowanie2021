@@ -39,5 +39,5 @@ class zbiorFunkcji:
         for f in self.set_of_functions:
             i+=1
             print("Index: ", i)
-            f.__str__()
+            print(f.show())
 

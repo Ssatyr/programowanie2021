@@ -67,6 +67,7 @@ while(True):
                     funkcja = funkcjaKwadratowa.create_function(a=a, b=b, c=c)
                     zbior_funkcji.delete_function(funkcja)
 
+
             elif remove_menu_selection == 3:
                 break
 
