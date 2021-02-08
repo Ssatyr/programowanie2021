@@ -26,10 +26,6 @@ class MyWindow(QMainWindow):
     def button3_clicked(self):
         wykresy_funkcji._show_plot()
 
-    def button4_clicked(self):
-        #not yet
-        print("not yet")
-
     def button5_clicked(self):
         wykresy_funkcji.plot()
 
@@ -95,6 +91,12 @@ class MyWindow(QMainWindow):
     @pyqtSlot()
     def button2_clicked(self):
         self.cams = Okno2() 
+        self.cams.show()
+        self.close()
+
+    @pyqtSlot()
+    def button4_clicked(self):
+        self.cams = Okno3() 
         self.cams.show()
         self.close()
 
@@ -170,10 +172,6 @@ class Okno1(QDialog):
             zbior_funkcji.add_function(funkcja)
 
 
-    def update(self):
-        self.label.adjustSize()
-
-
 #=========== OKNO USUWANIA ====================
 
 class Okno2(QDialog):
@@ -215,8 +213,85 @@ class Okno2(QDialog):
         index = int(self.a_input.text())
         zbior_funkcji.delete_function_by(index-1)
 
-    def update(self):
-        self.label.adjustSize()
+
+#=================== OKNO ZMINY XMIN XMAX ITD =================
+
+class Okno3(QDialog):
+    def __init__(self):
+        super(Okno3,self).__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(300, 300, 900, 900) #od lewej od gory szerokosc wysokosc
+        self.setWindowTitle("zadanie 7 Witold Kardas")
+
+        self.b1 = QPushButton(self)
+        self.b1.setText("zmien na podane")
+        self.b1.clicked.connect(self.RmFunction)
+        self.b1.setGeometry(10, 10, 250, 50)
+
+        self.b2 = QPushButton(self)
+        self.b2.setText("Wróć")
+        self.b2.clicked.connect(self.goMainWindow)
+        self.b2.setGeometry(10, 80, 250, 50)
+
+        font = QFont()
+        font.setPointSize(15)
+
+        self.label = QLabel(self)
+        self.label.setText("x_min: ")
+        self.label.setGeometry(300, 10, 80, 50)
+
+        self.label = QLabel(self)
+        self.label.setText("x_max")
+        self.label.setGeometry(420, 10, 80, 50)
+
+        self.label = QLabel(self)
+        self.label.setText("y_min")
+        self.label.setGeometry(540, 10, 80, 50)
+
+        self.label = QLabel(self)
+        self.label.setText("y_max")
+        self.label.setGeometry(660, 10, 80, 50)
+
+        self.label = QLabel(self)
+        self.label.setText("step")
+        self.label.setGeometry(780, 10, 80, 50)
+
+        self.xi_input = QLineEdit(self)
+        self.xi_input.setFont(font)
+        self.xi_input.setGeometry(300, 80, 100, 50)
+
+        self.xa_input = QLineEdit(self)
+        self.xa_input.setFont(font)
+        self.xa_input.setGeometry(420, 80, 100, 50)
+
+        self.yi_input = QLineEdit(self)
+        self.yi_input.setFont(font)
+        self.yi_input.setGeometry(540, 80, 100, 50)
+
+        self.ya_input = QLineEdit(self)
+        self.ya_input.setFont(font)
+        self.ya_input.setGeometry(660, 80, 100, 50)
+
+        self.s_input = QLineEdit(self)
+        self.s_input.setFont(font)
+        self.s_input.setGeometry(780, 80, 100, 50)
+
+    def goMainWindow(self):
+        self.cams = MyWindow()
+        self.cams.show()
+        self.close() 
+
+    def RmFunction(self):
+        x_min = float(self.xi_input.text())
+        x_max = float(self.xa_input.text())
+        y_min = float(self.yi_input.text())
+        y_max = float(self.ya_input.text())
+        step = float(self.s_input.text())
+        wykresy_funkcji.set_x_range(x_min, x_max)
+        wykresy_funkcji.set_y_range(y_min, y_max)
+        wykresy_funkcji.set_step(step)
 
 
 def window():
