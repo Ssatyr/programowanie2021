@@ -26,14 +26,6 @@ class zbiorFunkcji:
         except Exception:
             pass
 
-    def __str__(self):
-        i = 0
-        __str = ""
-        for f in self.set_of_functions:
-            __str += f"[{i}] {f.type}, {f.info}\n"
-            i += 1
-        return __str
-
     def show_function(self):
         i = 0
         for f in self.set_of_functions:

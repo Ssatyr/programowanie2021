@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8" />
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+        <link rel="stylesheet" href="../static/style.css" />
     </head>
 
     <body>
         <div class="navbar">
-            <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
-            <a href="{{ url_for('about') }}" class="navbar-item">About</a>
+            <a href="{{ url_for('home') }}" class="navbar-brand">Your Discord Bot</a>
+            <a href="{{ url_for('about') }}" class="navbar-item">About us</a>
             <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
             <a href="{{ url_for('upload') }}" class="navbar-item">Upload</a>
         </div>
@@ -17,10 +17,12 @@
         <div class="body-content">
             {% block content %}
             {% endblock %}
+            
+        </div>
+        
+        <div class="footer">
             <hr/>
-            <footer>
-                <p>&copy; 2018</p>
-            </footer>
+           <p>&copy; 2021. All rights reserved.</p>
         </div>
     </body>
 </html>
