@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import Flask, render_template, request
 import flask
-#import app
+#from . import app
 import os, uuid, sys
 
 app = flask.Flask(__name__)
@@ -21,6 +21,10 @@ def contact():
 @app.route('/upload/')
 def upload():
    return render_template("upload.html")
+
+@app.route('/instruction/')
+def instruction():
+   return render_template("instruction.html")
 
 @app.route("/uploader/", methods = ['GET', 'POST'])
 def uploader():

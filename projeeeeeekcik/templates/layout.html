@@ -8,20 +8,21 @@
 
     <body>
         <div class="navbar">
+            <div class="navbar-img">
+            <img src="../static/logo.jpg" width="70" height="80">
+            </div>
             <a href="{{ url_for('home') }}" class="navbar-brand">Your Discord Bot</a>
+            <a href="{{ url_for('instruction') }}" class="navbar-item">Instruction</a>
             <a href="{{ url_for('about') }}" class="navbar-item">About us</a>
             <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
-            <a href="{{ url_for('upload') }}" class="navbar-item">Upload</a>
         </div>
 
         <div class="body-content">
             {% block content %}
             {% endblock %}
-            
         </div>
         
         <div class="footer">
-            <hr/>
            <p>&copy; 2021. All rights reserved.</p>
         </div>
     </body>

@@ -3,24 +3,13 @@
 Discord Bot Creator
 {% endblock %}
 {% block content %}
-<h1>Get code for your own Discord Bot!</h1>
+<h1>Get your own Discord Bot!</h1>
 <div class="container">
     <h2>What do you want your bot to do?</h2>
-    <div class="group">
-        <input type="checkbox" id="music" name="music" value="muzyka"/>
-        <label for="music">Play requested music</label>
-    </div>
-    <div class="group">
-        <input type="checkbox" id="pictures"/>
-        <label for="pictures">Send requested pictures</label>
-    </div>
-    <div class="group">
-        <input type="checkbox" id="something1"/>
-        <label for="something1">something1</label>
-    </div>
-    <div class="group">
-        <input type="checkbox" id="something2"/>
-        <label for="something2">something2</label>
-    </div>
+    <button class="btn" onclick=" window.open('https://discord.com/api/oauth2/authorize?client_id=812452304124379166&permissions=0&scope=bot','_blank')">VOICE RECORDER</button>
+    <button class="btn" onclick=" window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO','_blank')">MUSIC</button>
+    <button class="btn" onclick=" window.open('https://discord.com/api/oauth2/authorize?client_id=813782240835272744&permissions=0&scope=bot','_blank')">WELCOMING NEW USERS</button>
+    <button class="btn" onclick=" window.open('https://discord.com/api/oauth2/authorize?client_id=816076621286473768&permissions=0&scope=bot','_blank')">TELLING JOKES</button>
+    <button class="btn" onclick=" window.open('https://discord.com/api/oauth2/authorize?client_id=813183372649955350&permissions=0&scope=bot','_blank')">DATE</button>
 </div>
 {% endblock %}
